@@ -1,0 +1,28 @@
+# tinydns format example zone file for example.com
+
+# SOA record for forward zone
+Zexample.com:ns.example.com:noc.example.com.::28800:3600:604800:3600:3600
+
+# SOA record for reverse zone
+Z0.20.10.in-addr.arpa:ns.example.com:noc.example.com.::28800:3600:604800:3600:3600
+
+# authoritative NS record for forward zone
+&example.com::ns.example.com.:3600
+
+# authoritative NS record for reverse zone
+&0.20.10.in-addr.arpa::ns.example.com.:3600
+
+# A record 
++ns.example.com:10.0.0.1:3600
+
+# MX record
+@example.com::mail.example.com.:10:3600
+
+# A and PTR record
+=example.com:10.0.0.10:3600
+
+# CNAME record
+Cwww.example.com:example.com.:3600
+
+# A and PTR record
+=mail.example.com:10.0.0.11:3600
