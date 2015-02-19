@@ -7,7 +7,7 @@ RUN useradd --system --home /etc/dbndns Gtinydns
 RUN useradd --system --home /etc/dbndns Gdnslog
 ADD http://http.us.debian.org/debian/pool/main/d/djbdns/dbndns_1.05-8_amd64.deb /tmp/dbndns_1.05-8_amd64.deb
 RUN dpkg -i /tmp/dbndns_1.05-8_amd64.deb
-RUN tinydns-conf Gtinydns Gdnslog /etc/service/tinydns 127.0.0.2
+RUN tinydns-conf Gtinydns Gdnslog /etc/service/tinydns 127.0.0.1,127.0.0.2
 RUN dnscache-conf Gtinydns Gdnslog /etc/service/dnscache 0.0.0.0
 
 RUN echo 1 > /etc/service/dnscache/env/FORWARDONLY
