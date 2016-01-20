@@ -10,10 +10,8 @@ RUN dpkg -i /tmp/dbndns_1.05-8_amd64.deb
 RUN tinydns-conf Gtinydns Gdnslog /etc/service/tinydns 127.0.0.1,127.0.0.2
 RUN dnscache-conf Gtinydns Gdnslog /etc/service/dnscache 0.0.0.0
 
-RUN echo 1 > /etc/service/dnscache/env/FORWARDONLY
-
 # forward all requests to tinydns
-RUN echo 127.0.0.2 > /etc/service/dnscache/root/servers/@
+#RUN echo 127.0.0.2 > /etc/service/dnscache/root/servers/@
 
 # allow all to connect to dnscache
 RUN for i in `seq 1 255`; do touch /etc/service/dnscache/root/ip/${i}; done
